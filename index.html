@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Speech Detection</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+  </style>
+</head>
+<body>
+<!--<button id="startScriptBtn">START </button>-->
+<div class="nav">
+<h1>Transcribe</h1>
+  <div class="words" contenteditable>
+  </div>
+</div>
+
+
+  <script src="index.js" charset="utf-8"></script>
+<script>
+  document.getElementById('startScriptBtn').addEventListener('click', () => {
+    fetch('/start-script', {
+      method: 'POST'
+    })
+            .then(response => response.text())
+            .then(data => {
+              console.log(data);
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+  });
+</script>
+
+
+
+  </body>
+  </html>
